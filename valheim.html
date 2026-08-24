@@ -1,72 +1,285 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Valheim</title>
-	<style type="text/css">
-		body { background-color: #fff }
-	</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valheim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14110d;
+    --bg-deep: #0c0a07;
+    --panel: #1d1810;
+    --panel-line: #362c1d;
+    --gold: #c8a04b;
+    --gold-soft: #a9884a;
+    --rust: #8a4a30;
+    --ink: #e9e0cc;
+    --ink-muted: #a89b82;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0; padding:0;
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(200,160,75,0.08), transparent 45%),
+      radial-gradient(ellipse at 90% 10%, rgba(138,74,48,0.10), transparent 40%),
+      var(--bg);
+    color: var(--ink);
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  body{
+    background-image:
+      repeating-linear-gradient(180deg, rgba(0,0,0,0.10) 0px, rgba(0,0,0,0.10) 1px, transparent 2px, transparent 4px),
+      radial-gradient(ellipse at 20% -10%, rgba(200,160,75,0.08), transparent 45%),
+      radial-gradient(ellipse at 90% 10%, rgba(138,74,48,0.10), transparent 40%),
+      var(--bg);
+  }
+
+  .wrap{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 56px 24px 90px;
+  }
+
+  header{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    padding-bottom: 34px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--panel-line);
+    position: relative;
+  }
+
+  header::after{
+    content: "";
+    position:absolute;
+    left:0; right:0; bottom:-1px;
+    height:3px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+    opacity:0.6;
+  }
+
+  .logo-frame{
+    width:74px; height:74px;
+    flex:0 0 auto;
+    border:1px solid var(--panel-line);
+    background: var(--bg-deep);
+    display:flex; align-items:center; justify-content:center;
+    border-radius: 4px;
+    box-shadow: inset 0 0 14px rgba(0,0,0,0.6);
+  }
+  .logo-frame img{ max-width:80%; max-height:80%; }
+
+  .heading-group h1{
+    font-family:'Cinzel', serif;
+    font-weight:700;
+    letter-spacing: 0.04em;
+    font-size: 2rem;
+    margin: 0 0 6px;
+    color: var(--ink);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+  }
+  .heading-group p{
+    margin:0;
+    color: var(--ink-muted);
+    font-style: italic;
+    font-size: 1.02rem;
+  }
+
+  h2.section-title{
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 54px 0 18px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  h2.section-title:first-of-type{ margin-top:0; }
+  h2.section-title::before{
+    content:"ᛟ";
+    color: var(--rust);
+    font-size:1.1rem;
+  }
+  h2.section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: linear-gradient(90deg, var(--panel-line), transparent);
+  }
+
+  .group{
+    margin-bottom: 30px;
+  }
+
+  h3.cat{
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0 0 12px;
+    padding-left: 2px;
+  }
+
+  ul.links{
+    list-style: none;
+    margin:0; padding:0;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap:10px;
+  }
+
+  ul.links li{
+    border:1px solid var(--panel-line);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    border-radius: 3px;
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+  }
+
+  ul.links li:hover{
+    border-color: var(--gold-soft);
+    background: rgba(200,160,75,0.06);
+    transform: translateY(-1px);
+  }
+
+  ul.links a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding: 11px 14px;
+    color: var(--ink);
+    text-decoration:none;
+    font-size: 0.98rem;
+    line-height:1.35;
+  }
+
+  ul.links a::before{
+    content:"ᚱ";
+    color: var(--rust);
+    font-size: 0.85rem;
+    flex:0 0 auto;
+    opacity:0.85;
+  }
+
+  ul.links a:hover{ color: var(--gold); }
+
+  footer{
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--panel-line);
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    text-align:center;
+  }
+
+  @media (max-width: 560px){
+    .wrap{ padding: 34px 16px 60px; }
+    header{ gap:14px; }
+    .logo-frame{ width:58px; height:58px; }
+    .heading-group h1{ font-size:1.5rem; }
+    ul.links{ grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-	<span class="mw-logo-container">
-		<img class="mw-logo-wordmark" alt="Valheim Wiki" src="https://static.wikia.nocookie.net/valheim/images/4/4c/Logo_valheim.png">
-	</span>
+  <div class="wrap">
 
-	<h3>Main</h3>
-	<ul>
-		<li><a href="https://valheim.fandom.com/wiki/Valheim">Wiki</a></li>
-		<li><a href="https://linuxgsm.com/servers/">Linux Game Server Managers</a></li>
-	</ul>
-	
-	<h3>Wiki</h3>
-	<ul>
-		<li><a href="https://valheim.fandom.com/wiki/Portal">Portal</a></li>
-		<li><a href="https://valheim.fandom.com/wiki/Cart">Cart</a></li>
-		<li><a href="https://valheim.fandom.com/wiki/Cartography_table">Cartography_table</a></li>
-	</ul>
-	
-	<hr style="margin: 15px 0" />
-	
-	<h2>Dedicated Server</h2>
-	<h3>Hosting</h3>
-	<ul>
-		<li><a href="https://www.ovhcloud.com/es-es/vps/compare/">OVH</a></li>
-		<li><a href="https://www.hetzner.com/cloud">Hetzner</a></li>
-		<li><a href="https://contabo.com/en/vps/">Contabo</a></li>
-		<li><a href="https://iniz.com/ssd-vps">Iniz</a></li>
-		<li><a href="https://valhost.net/">Valhost</a></li>
-	</ul>
-	
-	<h3>Info</h3>
-	<ul>
-		<li><a href="https://github.com/F1r3w477/my-tutorials/tree/main/Valheim%20Dedicated%20VPS%20-%20HyperExpert">How to create a dedicated Valheim server on a VPS</a></li>
-		<li><a href="https://www.gamerevolution.com/guides/674343-valheim-dedicated-server-requirements-minimum-specs">Valheim dedicated server requirements | Minimum specifications</a></li>
-		<li><a href="https://valheim.fandom.com/wiki/Valheim_Dedicated_Server">Valheim Dedicated Server</a></li>
-		<li><a href="https://www.corrosionhour.com/how-to-setup-a-valheim-dedicated-server/">How to Setup a Valheim Dedicated Server</a></li>
-	</ul>
-	
-	<h3>Github</h3>
-	<ul>
-		<li><a href="https://github.com/topics/valheim">Valheim</a></li>
-		<li><a href="https://github.com/lloesche/valheim-server-docker#status-web-server">valheim-server-docker</a></li>
-		<li><a href="https://github.com/Nimdy/Dedicated_Valheim_Server_Script">Dedicated_Valheim_Server_Scriptr</a></li>
-	</ul>
-	
-	<h3>Reddit</h3>
-	<ul>
-		<li><a href="https://www.reddit.com/r/valheim/comments/lcg8xk/dedicated_server_requirements/">dedicated_server_requirements</a></li>
-		<li><a href="https://www.reddit.com/r/valheim/comments/ll06x3/simple_text_guide_to_set_up_a_dedicated_server_on/">simple_text_guide_to_set_up_a_dedicated_server_on</a></li>
-		<li><a href="https://www.reddit.com/r/valheim/comments/llvkgr/how_to_run_valheim_dedicated_server_on_raspberry/">how_to_run_valheim_dedicated_server_on_raspberry</a></li>
-		<li><a href="https://www.reddit.com/r/ovh/comments/ljb9n7/using_ovh_vps_for_valheim_server/">using_ovh_vps_for_valheim_server</a></li>
-		<li><a href="https://www.reddit.com/r/valheim/comments/lkmswu/game_server_manager_setup/">game_server_manager_setup</a></li>
-		<li><a href="https://www.reddit.com/r/valheim/comments/lp7avc/server_management_and_monitoring/">server_management_and_monitoring</a></li>
-		<li><a href="https://www.reddit.com/r/valheim/comments/ppgoky/want_to_buy_a_dedicated_server_for_valheim_vps/">want_to_buy_a_dedicated_server_for_valheim_vps</a></li>
-		<li><a href="https://www.reddit.com/r/valheim/comments/qxyx2j/best_valheim_server_hosting_company/">best_valheim_server_hosting_company</a></li>
-	</ul>
-	
-	<h3>Contabo / Hetzner</h3>
-	<ul>
-		<li><a href="https://www.reddit.com/r/VPS/comments/xugbqo/contabo_vs_hetzner/">contabo_vs_hetzner</a></li>
-	</ul>
+    <header>
+      <div class="logo-frame">
+        <img src="https://static.wikia.nocookie.net/valheim/images/4/4c/Logo_valheim.png" alt="Valheim Wiki">
+      </div>
+      <div class="heading-group">
+        <h1>Valheim</h1>
+        <p>Bookmarks and notes for the world of Valheim and its dedicated server</p>
+      </div>
+    </header>
+
+    <h2 class="section-title">Main</h2>
+    <div class="group">
+      <ul class="links">
+        <li><a href="https://valheim.fandom.com/wiki/Valheim">Wiki</a></li>
+        <li><a href="https://linuxgsm.com/servers/">Linux Game Server Managers</a></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h3 class="cat">Wiki</h3>
+      <ul class="links">
+        <li><a href="https://valheim.fandom.com/wiki/Portal">Portal</a></li>
+        <li><a href="https://valheim.fandom.com/wiki/Cart">Cart</a></li>
+        <li><a href="https://valheim.fandom.com/wiki/Cartography_table">Cartography_table</a></li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Dedicated Server</h2>
+
+    <div class="group">
+      <h3 class="cat">Hosting</h3>
+      <ul class="links">
+        <li><a href="https://www.ovhcloud.com/es-es/vps/compare/">OVH</a></li>
+        <li><a href="https://www.hetzner.com/cloud">Hetzner</a></li>
+        <li><a href="https://contabo.com/en/vps/">Contabo</a></li>
+        <li><a href="https://iniz.com/ssd-vps">Iniz</a></li>
+        <li><a href="https://valhost.net/">Valhost</a></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h3 class="cat">Info</h3>
+      <ul class="links">
+        <li><a href="https://github.com/F1r3w477/my-tutorials/tree/main/Valheim%20Dedicated%20VPS%20-%20HyperExpert">How to create a dedicated Valheim server on a VPS</a></li>
+        <li><a href="https://www.gamerevolution.com/guides/674343-valheim-dedicated-server-requirements-minimum-specs">Valheim dedicated server requirements | Minimum specifications</a></li>
+        <li><a href="https://valheim.fandom.com/wiki/Valheim_Dedicated_Server">Valheim Dedicated Server</a></li>
+        <li><a href="https://www.corrosionhour.com/how-to-setup-a-valheim-dedicated-server/">How to Setup a Valheim Dedicated Server</a></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h3 class="cat">Github</h3>
+      <ul class="links">
+        <li><a href="https://github.com/topics/valheim">Valheim</a></li>
+        <li><a href="https://github.com/lloesche/valheim-server-docker#status-web-server">valheim-server-docker</a></li>
+        <li><a href="https://github.com/Nimdy/Dedicated_Valheim_Server_Script">Dedicated_Valheim_Server_Scriptr</a></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h3 class="cat">Reddit</h3>
+      <ul class="links">
+        <li><a href="https://www.reddit.com/r/valheim/comments/lcg8xk/dedicated_server_requirements/">Dedicated server requirements</a></li>
+        <li><a href="https://www.reddit.com/r/valheim/comments/ll06x3/simple_text_guide_to_set_up_a_dedicated_server_on/">Simple text guide to set up a dedicated server</a></li>
+        <li><a href="https://www.reddit.com/r/valheim/comments/llvkgr/how_to_run_valheim_dedicated_server_on_raspberry/">How to run Valheim dedicated server on Raspberry Pi</a></li>
+        <li><a href="https://www.reddit.com/r/ovh/comments/ljb9n7/using_ovh_vps_for_valheim_server/">Using OVH VPS for Valheim server</a></li>
+        <li><a href="https://www.reddit.com/r/valheim/comments/lkmswu/game_server_manager_setup/">Game server manager setup</a></li>
+        <li><a href="https://www.reddit.com/r/valheim/comments/lp7avc/server_management_and_monitoring/">Server management and monitoring</a></li>
+        <li><a href="https://www.reddit.com/r/valheim/comments/ppgoky/want_to_buy_a_dedicated_server_for_valheim_vps/">Want to buy a dedicated server for Valheim VPS</a></li>
+        <li><a href="https://www.reddit.com/r/valheim/comments/qxyx2j/best_valheim_server_hosting_company/">Best Valheim server hosting company</a></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h3 class="cat">Contabo / Hetzner</h3>
+      <ul class="links">
+        <li><a href="https://www.reddit.com/r/VPS/comments/xugbqo/contabo_vs_hetzner/">Contabo vs Hetzner</a></li>
+      </ul>
+    </div>
+
+    <footer>May Odin guide your connection — low ping, steady server.</footer>
+
+  </div>
 </body>
 </html>
