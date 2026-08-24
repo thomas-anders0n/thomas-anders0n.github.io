@@ -1,130 +1,182 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Stellaris</title>
-	<style type="text/css">
-		body { background-color: #fff }
-	</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Bookmarks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #131110;
+    --panel: #1c1917;
+    --panel-hover: #241f1c;
+    --line: #332c27;
+    --ink: #f1ece3;
+    --ink-muted: #a89d8f;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{ margin:0; padding:0; background:var(--bg); }
+
+  body{
+    color: var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .wrap{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  header{
+    padding-bottom: 26px;
+    margin-bottom: 44px;
+    border-bottom: 2px solid var(--line);
+  }
+
+  header h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    letter-spacing: 0.01em;
+    font-size: 2rem;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  header p{
+    margin:0;
+    color: var(--ink-muted);
+    font-size: 1rem;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 18px;
+  }
+
+  .card{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 26px 24px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    border-radius: 8px;
+    text-decoration:none;
+    color: var(--ink);
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  }
+  .card:hover{
+    border-color: var(--accent);
+    background: var(--panel-hover);
+    transform: translateY(-2px);
+  }
+
+  .card .icon{
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    display:flex; align-items:center; justify-content:center;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--line);
+  }
+  .card .icon svg{ width:60%; height:60%; }
+
+  .card h2{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size: 1.25rem;
+    letter-spacing: 0.01em;
+    margin: 4px 0 0;
+    color: var(--ink);
+  }
+  .card p{
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+  }
+
+  /* per-card accent colors */
+  .card.valheim{ --accent: #c8a04b; }
+  .card.valheim h2{ color:#c8a04b; }
+  .card.valheim .icon svg{ stroke:#c8a04b; }
+
+  .card.stellaris{ --accent: #6fb8ff; }
+  .card.stellaris h2{ color:#6fb8ff; }
+  .card.stellaris .icon svg{ stroke:#6fb8ff; }
+
+  .card.diablo2r{ --accent: #e0972e; }
+  .card.diablo2r h2{ color:#e0972e; }
+
+  footer{
+    margin-top: 56px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    text-align:center;
+  }
+
+  @media (max-width: 560px){
+    .wrap{ padding: 40px 16px 70px; }
+    header h1{ font-size: 1.6rem; }
+  }
+</style>
 </head>
 <body>
-	<span class="mw-logo-container">
-		<img class="mw-logo-wordmark" alt="Stellaris Wiki" src="https://stellaris.paradoxwikis.com/images/wiki.PNG?wordmark" width="160" height="236">
-	</span>
+  <div class="wrap">
 
-	<h3>Main</h3>
-	<ul>
-		<li><a href="https://stellaris.paradoxwikis.com/Beginner%27s_guide">Stellaris_Wiki</a></li>
-		<li><a href="https://turanar.github.io/stellaris-tech-tree/vanilla/">Tech Tree</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Anomaly">Anomaly</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Archaeological_site">Archaeological_site</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Events">Events</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Traditions#Ascension_perks">Ascension_perks</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Economy#Advanced_resources">Advanced_resources</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Buildings">Buildings</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Unique_systems">Unique_systems</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Spaceborne_aliens#Space_Creatures">Space_Creatures</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Guardians">Guardians</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Patch_3.5">Patch_3.5</a></li>
-		<li><a href="https://lonerstrategygames.com/stellaris-influence-gain/">Stellaris Influence, Gaining It And Using It</a></li>
-		<li><a href="https://www.reddit.com/r/Stellaris/comments/n6i6bp/fun_with_habitats_a_visual_guide/">Habitats</a></li>
-	</ul>
+    <header>
+      <h1>Game Bookmarks</h1>
+      <p>A hub for saved links, guides and references across games</p>
+    </header>
 
-	<h3>Events</h3>
-	<ul>
-		<li><a href="https://stellaris.paradoxwikis.com/The_Doorway">The_Doorway</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Habitable_Worlds_Survey#Alien_Specimen_Procurement">Alien_Specimen_Procurement</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Subterranean_Civilization">Subterranean_Civilization</a></li>
-		<li><a href="https://github.com/cloudwu/stellaris_cn/blob/master/en/localisation/english/events_3_l_english.yml#L165">Improbable Ceramics</a></li>
-	</ul>
+    <div class="grid">
 
-	<h4>FTL_species</h4>
-	<ul>
-		<li><a href="https://stellaris.paradoxwikis.com/Pre-FTL_species#Conquest">Pre-FTL_species#Conquest</a></li>
-		<li>Google => stellaris Primitive civilizations</li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/a0gfkd/how_do_you_approach_primitive_civilizations/">https://old.reddit.com/r/Stellaris/comments/a0gfkd/how_do_you_approach_primitive_civilizations/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/npfsrn/should_you_uplift_primitive_species/">https://old.reddit.com/r/Stellaris/comments/npfsrn/should_you_uplift_primitive_species/</a></li>
-		<li><a href="https://old.reddit.com/r/StellarisOnConsole/comments/gnahtn/how_to_deal_with_primitive_civilizations_includes/">https://old.reddit.com/r/StellarisOnConsole/comments/gnahtn/how_to_deal_with_primitive_civilizations_includes/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/jyiu3l/invasions_on_primitive_civilizations_what_to_do/">https://old.reddit.com/r/Stellaris/comments/jyiu3l/invasions_on_primitive_civilizations_what_to_do/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/tqvipb/how_long_does_it_take_for_primitive_civilisations/">https://old.reddit.com/r/Stellaris/comments/tqvipb/how_long_does_it_take_for_primitive_civilisations/</a></li>
-		<li>Google => stellaris abandon planet</li>
-		<li>Google => stellaris uncolonice / decolonize planet</li>
-		<li><a href="https://stellaris.paradoxwikis.com/Species_rights#Purge_type">Species_rights#Purge_type</a></li>
-	</ul>
+      <a class="card valheim" href="valheim.html">
+        <div class="icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4">
+            <path d="M50 10 L50 90 M25 30 L75 30 M20 55 L50 45 L80 55" />
+          </svg>
+        </div>
+        <h2>Valheim</h2>
+        <p>Dedicated server hosting, wiki pages and setup guides.</p>
+      </a>
 
-	<h4>Misc</h4>
-	<ul>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/n9uxdh/strategy_how_do_you_build_your_forge_worlds/">https://old.reddit.com/r/Stellaris/comments/n9uxdh/strategy_how_do_you_build_your_forge_worlds/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/t5h6p2/does_everyone_still_hate_gene_clinics/">https://old.reddit.com/r/Stellaris/comments/t5h6p2/does_everyone_still_hate_gene_clinics/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/aifkiq/pops_keep_randomly_changing_ethics/">https://old.reddit.com/r/Stellaris/comments/aifkiq/pops_keep_randomly_changing_ethics/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/ugkbwm/question_about_pop_ethics/">https://old.reddit.com/r/Stellaris/comments/ugkbwm/question_about_pop_ethics/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/uojsmj/hyper_relays_are_a_godsend/">hyper_relays</a></li>
-	</ul>
+      <a class="card stellaris" href="stellaris.html">
+        <div class="icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4">
+            <circle cx="50" cy="50" r="8" />
+            <ellipse cx="50" cy="50" rx="42" ry="16" />
+            <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(60 50 50)" />
+            <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(120 50 50)" />
+          </svg>
+        </div>
+        <h2>Stellaris</h2>
+        <p>Strategy guides, events, ship design and colony references.</p>
+      </a>
 
-	<h4>Defense</h4>
-	<ul>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/f9yi21/fortress_world_builds/">https://old.reddit.com/r/Stellaris/comments/f9yi21/fortress_world_builds/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/jmc9ph/what_is_the_best_way_to_fortress_world/">https://old.reddit.com/r/Stellaris/comments/jmc9ph/what_is_the_best_way_to_fortress_world/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/q1snpw/beginner_military_fleet_help/">https://old.reddit.com/r/Stellaris/comments/q1snpw/beginner_military_fleet_help/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/lwtugr/early_game_corvette_loadouts/">https://old.reddit.com/r/Stellaris/comments/lwtugr/early_game_corvette_loadouts/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/pq0iif/do_you_build_defense_platforms_for_your_starbases/">https://old.reddit.com/r/Stellaris/comments/pq0iif/do_you_build_defense_platforms_for_your_starbases/</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Core_components">Core_components</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Weapon_components#Laser">Weapon_components</a></li>
-		<li><a href="https://stellaris.paradoxwikis.com/Utility_components">Utility_components</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/rh745h/what_ship_weapons_are_good_and_what_are_bad/">what_ship_weapons_are_good_and_what_are_bad</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/b1pb7c/can_someone_explain_the_weapon_types_and_ship/">https://www.reddit.com/r/Stellaris/comments/b1pb7c/can_someone_explain_the_weapon_types_and_ship/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/mh4bp8/laser_plasma_disruptor_autocanon_kinetic_mega/">https://www.reddit.com/r/Stellaris/comments/mh4bp8/laser_plasma_disruptor_autocanon_kinetic_mega/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/m6n9d4/whats_the_best_weapon_of_each_type_for_each_ship/">whats_the_best_weapon_of_each_type_for_each_ship</a></li>
-	</ul>
+      <a class="card diablo2r" href="d2r.html">
+        <div class="icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,6 61,38 95,38 67,58 78,90 50,70 22,90 33,58 5,38 39,38"
+                     fill="none" stroke="#e0972e" stroke-width="4"/>
+            <circle cx="50" cy="50" r="10" fill="#c0392b"/>
+          </svg>
+        </div>
+        <h2>Diablo II: Resurrected</h2>
+        <p>Builds, runewords, trading tools and community links.</p>
+      </a>
 
-	<h4>Defense Starbase</h4>
-	<ul>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/pb776h/whats_the_best_set_up_for_a_defensive_starbase/">whats_the_best_set_up_for_a_defensive_starbase</a></li>
-		<li><a href="https://forum.paradoxplaza.com/forum/threads/best-defensive-starbase-building.1478068/">best-defensive-starbase-building</a></li>
-	</ul>
+    </div>
 
-	<h4>Trade</h4>
-	<ul>
-		<li><a href="https://stellaris.paradoxwikis.com/Trade">Trade</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/sioj58/please_help_me_understand_trade_value/">https://old.reddit.com/r/Stellaris/comments/sioj58/please_help_me_understand_trade_value/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/u1u427/can_someone_explain_trade_routes/">https://old.reddit.com/r/Stellaris/comments/u1u427/can_someone_explain_trade_routes/</a></li>
-	</ul>
+    <footer>Personal bookmark collection — click a game to open its page.</footer>
 
-	<h4>Colony &amp; Robots</h4>
-	<ul>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/palify/what_jobs_can_robotic_workers_do_now/">what_jobs_can_robotic_workers_do_now</a></li>
-		<li>---------</li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/djpuum/colony_composition/">https://old.reddit.com/r/Stellaris/comments/djpuum/colony_composition/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/cziy7a/new_colony_development_tips/">https://old.reddit.com/r/Stellaris/comments/cziy7a/new_colony_development_tips/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/rq7hyq/are_robots_worth_it/">https://old.reddit.com/r/Stellaris/comments/rq7hyq/are_robots_worth_it/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/u3xjj9/are_robot_assembly_plants_worth_it/">https://old.reddit.com/r/Stellaris/comments/u3xjj9/are_robot_assembly_plants_worth_it/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/les0yq/how_do_droid_colonies_work_trying_to_get_one_to/">https://old.reddit.com/r/Stellaris/comments/les0yq/how_do_droid_colonies_work_trying_to_get_one_to/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/p4xsb3/robots_in_colonies/">https://old.reddit.com/r/Stellaris/comments/p4xsb3/robots_in_colonies/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/7lkd0l/quick_noobquestion_about_robots_and_colonizing/">https://old.reddit.com/r/Stellaris/comments/7lkd0l/quick_noobquestion_about_robots_and_colonizing/</a></li>
-	</ul>
-
-	<h4>Ascension_perks</h4>
-	<ul>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/qyv0xo/best_and_worst_ascension_perks/">https://old.reddit.com/r/Stellaris/comments/qyv0xo/best_and_worst_ascension_perks/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/u9hmif/which_ascension_perks_do_you_basically_always/">https://old.reddit.com/r/Stellaris/comments/u9hmif/which_ascension_perks_do_you_basically_always/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/ngmqnu/ascension_perk_tier_list_30_all_perks_explained/">https://old.reddit.com/r/Stellaris/comments/ngmqnu/ascension_perk_tier_list_30_all_perks_explained/</a></li>
-		<li><a href="https://www.gamepretty.com/stellaris-ascension-perks-guide-version-3-3-patch-libra/">https://www.gamepretty.com/stellaris-ascension-perks-guide-version-3-3-patch-libra/</a></li>
-	</ul>
-
-	<h4>Temp</h4>
-	<ul>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/bgk7ct/what_are_gaia_worlds/">https://old.reddit.com/r/Stellaris/comments/bgk7ct/what_are_gaia_worlds/</a></li>
-	</ul>
-
-	<h4>Start</h4>
-	<ul>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/4iek6x/spoilers_starting_tech_choices_and_strategy/" target="_blank">https://old.reddit.com/r/Stellaris/comments/4iek6x/spoilers_starting_tech_choices_and_strategy/</a></li>
-		<li><a href="https://www.brothersingaming.com/the-first-things-you-should-do-in-stellaris/" target="_blank">https://www.brothersingaming.com/the-first-things-you-should-do-in-stellaris/</a></li>
-		<li><a href="https://www.pcgamesn.com/stellaris/guide-tips-beginners">https://www.pcgamesn.com/stellaris/guide-tips-beginners</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/d189f5/whats_the_general_consensus_for_opening_build/" target="_blank">https://old.reddit.com/r/Stellaris/comments/d189f5/whats_the_general_consensus_for_opening_build/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/f2c928/whats_your_first_system_build_order/" target="_blank">https://old.reddit.com/r/Stellaris/comments/f2c928/whats_your_first_system_build_order/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/kn9ddn/what_is_a_good_early_build_order/" target="_blank">https://old.reddit.com/r/Stellaris/comments/kn9ddn/what_is_a_good_early_build_order/</a></li>
-		<li><a href="https://old.reddit.com/r/Stellaris/comments/rsf6wy/are_there_any_good_guides_for_new_players/" target="_blank">https://old.reddit.com/r/Stellaris/comments/rsf6wy/are_there_any_good_guides_for_new_players/</a></li>
-	</ul>
+  </div>
 </body>
 </html>
