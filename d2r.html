@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diablo II: Resurrected</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #131110;
+    --panel: #1c1917;
+    --panel-hover: #241f1c;
+    --line: #332c27;
+    --accent: #e0972e;
+    --accent-soft: #b97a26;
+    --red: #c0392b;
+    --ink: #f1ece3;
+    --ink-muted: #a89d8f;
+	--set: #90ff00;
+	--unique: #ecd2a8;
+	--rune: #fab100;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{ margin:0; padding:0; background:var(--bg); }
+
+  body{
+    color: var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .wrap{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 44px 24px 90px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding-bottom: 26px;
+    margin-bottom: 38px;
+    border-bottom: 2px solid var(--line);
+  }
+
+  .logo-frame{
+    width:60px; height:60px;
+    flex:0 0 auto;
+    border-radius:8px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .logo-frame svg{ width:56%; height:56%; }
+
+  .heading-group h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    letter-spacing: 0.01em;
+    font-size: 1.7rem;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .heading-group p{
+    margin:0;
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Section titles ---------- */
+  h2.section-title{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 46px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  h2.section-title:first-of-type{ margin-top:0; }
+
+  .group{ margin-bottom: 26px; }
+
+  h3.cat{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin: 0 0 10px;
+    padding-left: 2px;
+  }
+
+  /* ---------- Link cards ---------- */
+  ul.links{
+    list-style: none;
+    margin:0; padding:0;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap:8px;
+  }
+  ul.links.wide{
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+  }
+
+  ul.links li{
+    border:1px solid var(--line);
+    background: var(--panel);
+    border-radius: 5px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  ul.links li:hover{
+    border-color: var(--accent-soft);
+    background: var(--panel-hover);
+  }
+
+  ul.links a{
+    display:block;
+    padding: 12px 15px;
+    color: var(--ink);
+    text-decoration:none;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height:1.4;
+  }
+  ul.links a.set{
+    color: var(--set);
+  }
+  ul.links a.unique{
+    color: var(--unique);
+  }
+  ul.links a.rune{
+    color: var(--rune);
+  }
+  
+  ul.links a:hover{ color: var(--accent); }
+  
+  ul.links span.text{
+    display:block;
+    padding: 12px 15px;
+    color: var(--ink);
+    text-decoration:none;
+    font-size: .8rem;
+    font-weight: 400;
+    line-height:1.4;
+	border-top: 1px solid var(--line);
+  }
+
+  /* Empty-category placeholder, remove the <li> once you add real links */
+  ul.links li.placeholder{
+    border-style: dashed;
+    background: transparent;
+  }
+  ul.links li.placeholder span{
+    display:block;
+    padding: 12px 15px;
+    font-style: italic;
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+  }
+
+  footer{
+    margin-top: 56px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    text-align:center;
+  }
+
+  @media (max-width: 560px){
+    .wrap{ padding: 30px 16px 60px; }
+    header{ gap:14px; }
+    .logo-frame{ width:50px; height:50px; }
+    .heading-group h1{ font-size:1.35rem; }
+    ul.links{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="logo-frame">
+        <!-- Inline SVG sigil, no external image dependency -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="50,6 61,38 95,38 67,58 78,90 50,70 22,90 33,58 5,38 39,38"
+                   fill="none" stroke="#e0972e" stroke-width="3"/>
+          <circle cx="50" cy="50" r="13" fill="#c0392b"/>
+        </svg>
+      </div>
+      <div class="heading-group">
+        <h1>Diablo II: Resurrected</h1>
+        <p>Bookmarks and references collected for Diablo II: Resurrected</p>
+      </div>
+    </header>
+
+    <h2 class="section-title">Main</h2>
+    <div class="group">
+      <ul class="links">
+        <li class="placeholder"><span>Add your first link here</span></li>
+      </ul>
+    </div>
+	<div class="group">
+      <h3 class="cat">Info</h3>
+      <ul class="links wide">
+        <li>
+			<a href="https://old.reddit.com/r/Diablo/comments/q2nbn5/where_to_find_4_socket_armor/" target="_blank">Where to find 4 socket armor?</a>
+			<span class="text">I've found a lot of socketed gear from going into people's finished cow games and picking through the gear. Have found multiple 4 socketed armors doing so, hope this helps.</span>
+			<span class="text">I shopped 4 socket jewelers gothic plate from hell act 5 larzuk!</span>
+			<span class="text">I shopped a 4 soc jewelers as well a few days ago. It was Act 4 or 5 of NM, pretty sure Act 4</span>
+		</li>
+		<li>
+			<a href="https://old.reddit.com/r/Diablo_2_Resurrected/comments/1ql7vn9/how_to_shop_for_jewelers_4os_armor/" target="_blank">How to shop for jewelers 4os Armor?</a>
+			<span class="text">Larzuk to wp. Use a sorc, cast telekinesis on wp to save time.</span>
+			<span class="text">Easiest way is gothic plate (or full plate mail /ancient armor), as it's normal armor.Run in/out of town at a vendor who has multiple Gothic plates, and you'll average finding a jewelers every 5-10min</span>
+		</li>
+		<li>
+			<a href="https://old.reddit.com/r/diablo2/comments/1scdo1y/blizzard_sorc_keybinds/" target="_blank">Blizzard Sorc Keybinds?</a>
+			<span class="text">
+				- Teleport: Q or A (Instant escape and movement)<br>
+				- Primary Attack (Blizzard / Lightning / Fireball): W or S<br>
+				- Secondary / Synergy Attack (Glacial Spike / Chain Lightning): E or D<br>
+				- Static Field: R or X (Quick boss/pack health reduction)<br>
+				- Telekinesis: F or Z (Grab items or click Wp/Stash from afar)<br>
+				- Armor / Buff (Shiver Armor / Energy Shield): Spacebar or G<br>
+			</span>
+		</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Guides &amp; Wiki</h2>
+	<div class="group">
+      <ul class="links">
+        <li><a href="https://d2runes.io/cheatsheet/shopping" target="_blank">Shopping & Gambling Guide</a></li>
+        <li><a href="https://www.rpgstash.com/blog/d2r-heralds-of-terror-guide-spawn-mechanics-herald-tiers-farming-loop" target="_blank">D2R Heralds of Terror Guide</a></li>
+        <li><a href="https://old.reddit.com/r/diablo2/comments/1rjzqtt/how_do_heralds_work_herald_spawn_mechanics_sunder/" target="_blank">How do Heralds work?</a></li>
+      </ul>
+    </div>
+    <div class="group">
+      <h3 class="cat">Wiki</h3>
+      <ul class="links">
+        <li class="placeholder"><span>Add your first link here</span></li>
+      </ul>
+    </div>
+    <div class="group">
+      <h3 class="cat">Builds</h3>
+      <ul class="links">
+        <li class="placeholder"><span>Add your first link here</span></li>
+      </ul>
+    </div>
+    <div class="group">
+      <h3 class="cat">Leveling</h3>
+      <ul class="links">
+        <li class="placeholder"><span>Add your first link here</span></li>
+      </ul>
+    </div>
+	<div class="group">
+      <h3 class="cat">Horadric Cube</h3>
+      <ul class="links wide">
+        <li>
+			<a href="https://old.reddit.com/r/diablo2/comments/1e32hgb/grand_charm_reroll/" target="_blank">Grand charm reroll !?</a>
+			<span class="text">You can reroll any gc that drops from baal, diablo or Nilathak in hell (boss kill) OR any gc that dropped in a level 91 terrorzone or higher.</span>
+			<span class="text">Stick to rerolling grand charms that are level 91 or higher. The easiest way to ensure that's the case is to use ones that dropped from terror zones where your character is level 89 or higher.</span>
+			<span class="text">Each reroll takes 3 perfect gems. Use topaz/emerald/sapphire/diamond.</span>
+			<span class="text">Online: Reroll ilvl 91+ Offline: Reroll from nightmare cows if you're after skiller, switch to 91+ once you are decked out on skillers you need.</span>
+			<span class="text">Ilvl 50: 4.57% chance of getting ANY skiller Ilvl 91: 4.34% chance of getting ANY skiller</span>
+		</li>
+      </ul>
+    </div>
+	<div class="group">
+      <h3 class="cat">Areas</h3>
+      <ul class="links">
+        <li><a href="https://docs.google.com/spreadsheets/d/1_-AoSNlyloVYR0-bHYlnAbBqKQZYyMO_FhmGEt5LGOU/edit?gid=981967976#gid=981967976" target="_blank">D2 pod pathfinding</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1UQP7PjHgCJWN-s42bUtGsR18f9GNh7JJ15QE7D6CnHE/edit?gid=2#gid=2" target="_blank">Diablo2 Speedrunning / Racing</a></li>
+        <li><a href="https://diablo2.io/areas/durance-of-hate-level-2-t3788.html" target="_blank">Durance of Hate Level 2</a></li>
+        <li><a href="https://diablo2.io/areas/chaos-sanctuary-t3795.html" target="_blank">Chaos Sanctuary</a></li>
+      </ul>
+    </div>
+	<div class="group">
+      <h3 class="cat">Bosses</h3>
+      <ul class="links">
+        <li>
+			<a href="https://diablo2.io/monsters/herald-t1674889.html" target="_blank">Herald</a>
+			<span class="text">Herald spawn chance depends entirely and exclusively on your “zone completion percentage”. Essentially, the more of an area you explore and rid of monsters, the more likely a  Herald will spawn.</span>
+		</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Items &amp; Trading</h2>
+	<div class="group">
+      <h3 class="cat">Gear</h3>
+      <ul class="links">
+		<li><a class="set" href="https://diablo2.io/sets/tal-rasha-s-guardianship-t1156.html" target="_blank">Tal Rasha's Guardianship</a></li>
+		<li><a class="unique" href="https://diablo2.io/uniques/nature-s-peace-t863.html" target="_blank">Nature's Peace</a></li>
+      </ul>
+    </div>
+    <div class="group">
+      <h3 class="cat">Runewords</h3>
+      <ul class="links">
+        <li><a class="unique" href="https://diablo2.io/runewords/treachery-t1253.html" target="_blank">Treachery</a></li>
+        <li><a class="unique" href="https://diablo2.io/runewords/fortitude-t1232.html" target="_blank">Fortitude</a></li>
+        <li><a class="unique" href="https://diablo2.io/runewords/wealth-t1199.html" target="_blank">Wealth</a></li>
+      </ul>
+    </div>
+	<div class="group">
+      <h3 class="cat">Runes</h3>
+      <ul class="links">
+		<li><a class="rune" href="https://diablo2.io/misc/cham-t1330.html" target="_blank">Cham Rune</a></li>
+		<li><a class="rune" href="https://diablo2.io/forums/got-lucky-a-bit-too-lucky-t764192.html" target="_blank">Cham Rune - Got lucky... a bit "too" lucky :(</a></li>
+		<li><a class="rune" href="https://diablo2.io/misc/ist-t52.html" target="_blank">Ist Rune</a></li>
+      </ul>
+    </div>
+	<div class="group">
+      <h3 class="cat">Trading</h3>
+      <ul class="links">
+		<li><a class="set" href="https://traderie.com/diablo2resurrected/product/tal-rashas-guardianship?prop_Platform=PC&prop_Mode=softcore&prop_Ladder=false&prop_Game%20version=reign%20of%20the%20warlock" target="_blank">Tal Rasha's Guardianship</a></li>
+		<li><a class="set" href="https://traderie.com/diablo2resurrected/listing/1002409565228?prop_Platform=PC&prop_Mode=softcore&prop_Ladder=false&prop_Game%20version=reign%20of%20the%20warlock" target="_blank">Tal Rasha's Guardianship - 1 x Mal Rune</a></li>
+      </ul>
+    </div>
+    <div class="group">
+      <h3 class="cat">Trading Tools</h3>
+      <ul class="links">
+        <li class="placeholder"><span>Add your first link here</span></li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Tools</h2>
+    <div class="group">
+      <h3 class="cat">Calculators</h3>
+      <ul class="links">
+        <li class="placeholder"><span>Add your first link here</span></li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Community</h2>
+    <div class="group">
+      <h3 class="cat">Reddit</h3>
+      <ul class="links">
+        <li class="placeholder"><span>Add your first link here</span></li>
+      </ul>
+    </div>
+
+    <footer>Stay a while and listen.</footer>
+
+  </div>
+</body>
+</html>
