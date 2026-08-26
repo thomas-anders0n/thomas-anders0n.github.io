@@ -141,6 +141,9 @@
   ul.links a.rune{
     color: var(--rune);
   }
+  ul.links a.base{
+    color: #fff;
+  }
   
   ul.links a:hover{ color: var(--accent); }
   
@@ -177,6 +180,63 @@
     text-align:center;
   }
 
+  /* ---------- Index / TOC ---------- */
+  nav.toc{
+    border: 1px solid var(--line);
+    background: var(--panel);
+    border-radius: 8px;
+    padding: 22px 26px 26px;
+    margin-bottom: 46px;
+  }
+  nav.toc h2{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 16px;
+  }
+  .toc-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    gap: 22px 28px;
+  }
+  .toc-block a.toc-section{
+    display:block;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size: 0.98rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration:none;
+    margin-bottom: 8px;
+  }
+  .toc-block a.toc-section:hover{ color: var(--accent); }
+  .toc-block ul{
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .toc-block ul li{ margin-bottom: 5px; }
+  .toc-block ul li a{
+    color: var(--ink-muted);
+    text-decoration:none;
+    font-size: 0.88rem;
+  }
+  .toc-block ul li a:hover{ color: var(--accent); }
+
+  .back-to-index{
+    display:inline-block;
+    margin-top: 6px;
+    color: var(--ink-muted);
+    text-decoration:none;
+    font-size: 0.85rem;
+  }
+  .back-to-index:hover{ color: var(--accent); }
+
+  h2.section-title{ scroll-margin-top: 20px; }
+  h3.cat, .group{ scroll-margin-top: 20px; }
+
   @media (max-width: 560px){
     .wrap{ padding: 30px 16px 60px; }
     header{ gap:14px; }
@@ -187,7 +247,7 @@
 </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="wrap" id="top">
 
     <header>
       <div class="logo-frame">
@@ -204,13 +264,75 @@
       </div>
     </header>
 
-    <h2 class="section-title">Main</h2>
+    <nav class="toc" aria-label="Table of contents">
+      <h2>Index</h2>
+      <div class="toc-grid">
+
+        <div class="toc-block">
+          <a class="toc-section" href="#main">Main</a>
+          <ul>
+            <li><a href="#main-info">Info</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-block">
+          <a class="toc-section" href="#guides">Guides &amp; Wiki</a>
+          <ul>
+            <li><a href="#guides-general">General</a></li>
+            <li><a href="#guides-wiki">Wiki</a></li>
+            <li><a href="#guides-leveling">Leveling</a></li>
+            <li><a href="#guides-farming">Farming</a></li>
+            <li><a href="#guides-horadric-cube">Horadric Cube</a></li>
+            <li><a href="#guides-areas">Areas</a></li>
+            <li><a href="#guides-bosses">Bosses</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-block">
+          <a class="toc-section" href="#builds">Builds</a>
+          <ul>
+            <li><a href="#builds-sorceress">Sorceress</a></li>
+            <li><a href="#builds-paladin">Paladin</a></li>
+            <li><a href="#builds-barbarian">Barbarian</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-block">
+          <a class="toc-section" href="#items">Items &amp; Trading</a>
+          <ul>
+            <li><a href="#items-gear">Gear</a></li>
+            <li><a href="#items-runewords">Runewords</a></li>
+            <li><a href="#items-runewords-bases">Runewords Bases</a></li>
+            <li><a href="#items-runes">Runes</a></li>
+            <li><a href="#items-trading">Trading</a></li>
+            <li><a href="#items-trading-tools">Trading Tools</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-block">
+          <a class="toc-section" href="#tools">Tools</a>
+          <ul>
+            <li><a href="#tools-calculators">Calculators</a></li>
+          </ul>
+        </div>
+
+        <div class="toc-block">
+          <a class="toc-section" href="#community">Community</a>
+          <ul>
+            <li><a href="#community-reddit">Reddit</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <h2 class="section-title" id="main">Main</h2>
     <div class="group">
       <ul class="links">
         <li class="placeholder"><span>Add your first link here</span></li>
       </ul>
     </div>
-	<div class="group">
+	<div class="group" id="main-info">
       <h3 class="cat">Info</h3>
       <ul class="links wide">
         <li>
@@ -237,34 +359,43 @@
 		</li>
       </ul>
     </div>
+    <a class="back-to-index" href="#top">↑ Back to index</a>
 
-    <h2 class="section-title">Guides &amp; Wiki</h2>
-	<div class="group">
+    <h2 class="section-title" id="guides">Guides &amp; Wiki</h2>
+	<div class="group" id="guides-general">
       <ul class="links">
         <li><a href="https://d2runes.io/cheatsheet/shopping" target="_blank">Shopping & Gambling Guide</a></li>
         <li><a href="https://www.rpgstash.com/blog/d2r-heralds-of-terror-guide-spawn-mechanics-herald-tiers-farming-loop" target="_blank">D2R Heralds of Terror Guide</a></li>
         <li><a href="https://old.reddit.com/r/diablo2/comments/1rjzqtt/how_do_heralds_work_herald_spawn_mechanics_sunder/" target="_blank">How do Heralds work?</a></li>
       </ul>
     </div>
-    <div class="group">
+    <div class="group" id="guides-wiki">
       <h3 class="cat">Wiki</h3>
       <ul class="links">
         <li class="placeholder"><span>Add your first link here</span></li>
       </ul>
     </div>
-    <div class="group">
-      <h3 class="cat">Builds</h3>
-      <ul class="links">
-        <li class="placeholder"><span>Add your first link here</span></li>
-      </ul>
-    </div>
-    <div class="group">
+    <div class="group" id="guides-leveling">
       <h3 class="cat">Leveling</h3>
       <ul class="links">
         <li class="placeholder"><span>Add your first link here</span></li>
       </ul>
     </div>
-	<div class="group">
+	<div class="group" id="guides-farming">
+      <h3 class="cat">Farming</h3>
+      <ul class="links">
+        <li><a href="https://maxroll.gg/d2/meta/stony-tomb-farming-guide" target="_blank">Stony Tomb Farming | Maxroll</a></li>
+        <li><a href="https://maxroll.gg/d2/meta/pit-farming-guide" target="_blank">The Pit | Maxroll</a></li>
+        <li><a href="https://maxroll.gg/d2/meta/ancient-tunnels-farming-guide" target="_blank">Ancient Tunnels - Blizzard sorc | Maxroll</a></li>
+        <li><a href="https://maxroll.gg/d2/meta/travincal-farming-guide" target="_blank">Travincal | Maxroll</a></li>
+        <li><a href="https://maxroll.gg/d2/meta/arcane-sanctuary-summoner-farming-guide" target="_blank">Arcane Sanctuary | Maxroll</a></li>
+        <li><a href="https://maxroll.gg/d2/meta/chaos-sanctuary-farming-guide" target="_blank">Chaos Sanctuary | Maxroll</a></li>
+        <li><a href="https://maxroll.gg/d2/meta/pindleskin-farming-guide" target="_blank">Pindleskin | Maxroll</a></li>
+        <li><a href="https://old.reddit.com/r/Diablo_2_Resurrected/comments/1s7itzy/still_worth_farming_pindleskin_share_your/" target="_blank">Still worth farming pindleskin? share your experience</a></li>
+        <li><a href="https://old.reddit.com/r/diablo2/comments/1on0ykz/is_farming_pindle_even_worth_it/" target="_blank">Is farming Pindle even worth it?</a></li>
+      </ul>
+    </div>
+	<div class="group" id="guides-horadric-cube">
       <h3 class="cat">Horadric Cube</h3>
       <ul class="links wide">
         <li>
@@ -277,7 +408,7 @@
 		</li>
       </ul>
     </div>
-	<div class="group">
+	<div class="group" id="guides-areas">
       <h3 class="cat">Areas</h3>
       <ul class="links">
         <li><a href="https://docs.google.com/spreadsheets/d/1_-AoSNlyloVYR0-bHYlnAbBqKQZYyMO_FhmGEt5LGOU/edit?gid=981967976#gid=981967976" target="_blank">D2 pod pathfinding</a></li>
@@ -286,33 +417,67 @@
         <li><a href="https://diablo2.io/areas/chaos-sanctuary-t3795.html" target="_blank">Chaos Sanctuary</a></li>
       </ul>
     </div>
-	<div class="group">
+	<div class="group" id="guides-bosses">
       <h3 class="cat">Bosses</h3>
       <ul class="links">
         <li>
 			<a href="https://diablo2.io/monsters/herald-t1674889.html" target="_blank">Herald</a>
 			<span class="text">Herald spawn chance depends entirely and exclusively on your “zone completion percentage”. Essentially, the more of an area you explore and rid of monsters, the more likely a  Herald will spawn.</span>
 		</li>
+		<li><a href="https://maxroll.gg/d2/meta/diablo-clone" target="_blank">Diablo Clone</a></li>
       </ul>
     </div>
+    <a class="back-to-index" href="#top">↑ Back to index</a>
+	
+	<h2 class="section-title" id="builds">Builds</h2>
+	<div class="group" id="builds-sorceress">
+      <h3 class="cat">Sorceress</h3>
+      <ul class="links">
+        <li><a href="https://www.rpgstash.com/blog/d2r-firewall-hybrid-sorc-guide" target="_blank">D2R 2.8 Firewall Hybrid Sorc</a></li>
+        <li><a href="https://www.rpgstash.com/blog/hybrid-sorc-from-budget-to-best-gear" target="_blank">Hybrid Sorceress Build Guide</a></li>
+        <li><a href="https://maxroll.gg/d2/guides/frozen-orb-meteor-sorceress" target="_blank">Frozen Orb Meteor | Maxroll</a></li>
+        <li><a href="https://www.icy-veins.com/d2/meteor-frozen-orb-sorceress-meteorb-build" target="_blank">Meteorb</a></li>
+        <li><a href="https://old.reddit.com/r/Diablo_2_Resurrected/comments/q6kgp1/frozen_orbfirewall_build_in_depth_guide/" target="_blank">Frozen Orb/Firewall</a></li>
+		<li><a href="https://maxroll.gg/d2/guides/fire-wall-sorceress-guide" target="_blank">Fire Wall Sorceress | Maxroll</a></li>
+		<li><a href="https://maxroll.gg/d2/guides/lightning-sorceress" target="_blank">Lightning Sorceress | Maxroll</a></li>
+		<li><a href="https://maxroll.gg/d2/guides/nova-sorceress-guide" target="_blank">Nova Sorceress / Hydra | Maxroll</a></li>
+      </ul>
+    </div>
+	<div class="group" id="builds-paladin">
+      <h3 class="cat">Paladin</h3>
+      <ul class="links">
+        <li><a href="https://maxroll.gg/d2/guides/smite-paladin" target="_blank">Smite Paladin</a></li>
+        <li><a href="https://www.icy-veins.com/d2/foh-smiter-paladin-build" target="_blank">FoH Smiter Paladin</a></li>
+        <li><a href="https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build" target="_blank">Blessed Hammer Paladin (Hammerdin)</a></li>
+      </ul>
+    </div>
+	<div class="group" id="builds-barbarian">
+      <h3 class="cat">Barbarian</h3>
+      <ul class="links">
+		<li><a href="https://maxroll.gg/d2/guides/berserk-barbarian" target="_blank">Berserk Barbarian</a></li>
+      </ul>
+    </div>
+    <a class="back-to-index" href="#top">↑ Back to index</a>
 
-    <h2 class="section-title">Items &amp; Trading</h2>
-	<div class="group">
+    <h2 class="section-title" id="items">Items &amp; Trading</h2>
+	<div class="group" id="items-gear">
       <h3 class="cat">Gear</h3>
       <ul class="links">
 		<li><a class="set" href="https://diablo2.io/sets/tal-rasha-s-guardianship-t1156.html" target="_blank">Tal Rasha's Guardianship</a></li>
 		<li><a class="unique" href="https://diablo2.io/uniques/nature-s-peace-t863.html" target="_blank">Nature's Peace</a></li>
+		<li><a class="unique" href="https://diablo2.io/uniques/the-gladiator-s-bane-t971.html" target="_blank">The Gladiator's Bane</a></li>
       </ul>
     </div>
-    <div class="group">
+    <div class="group" id="items-runewords">
       <h3 class="cat">Runewords</h3>
       <ul class="links">
         <li><a class="unique" href="https://diablo2.io/runewords/treachery-t1253.html" target="_blank">Treachery</a></li>
         <li><a class="unique" href="https://diablo2.io/runewords/fortitude-t1232.html" target="_blank">Fortitude</a></li>
         <li><a class="unique" href="https://diablo2.io/runewords/wealth-t1199.html" target="_blank">Wealth</a></li>
+        <li><a class="unique" href="https://diablo2.io/runewords/edge-t1230.html" target="_blank">Edge</a></li>
       </ul>
     </div>
-	<div class="group">
+	<div class="group" id="items-runes">
       <h3 class="cat">Runes</h3>
       <ul class="links">
 		<li><a class="rune" href="https://diablo2.io/misc/cham-t1330.html" target="_blank">Cham Rune</a></li>
@@ -320,35 +485,47 @@
 		<li><a class="rune" href="https://diablo2.io/misc/ist-t52.html" target="_blank">Ist Rune</a></li>
       </ul>
     </div>
-	<div class="group">
+	<div class="group" id="items-runewords-bases">
+      <h3 class="cat">Runewords Bases</h3>
+      <ul class="links">
+        <li><a class="base" href="https://diablo2.io/base/edge-bow-t1623.html" target="_blank">Edge Bow</a></li>
+        <li><a class="base" href="https://diablo2.io/base/giant-thresher-t1802.html" target="_blank">Giant Thresher</a></li>
+        <li><a class="base" href="https://diablo2.io/base/mage-plate-t1404.html" target="_blank">Mage Plate</a></li>
+        <li><a class="base" href="https://diablo2.io/base/archon-plate-t1405.html" target="_blank">Archon Plate</a></li>
+      </ul>
+    </div>
+	<div class="group" id="items-trading">
       <h3 class="cat">Trading</h3>
       <ul class="links">
 		<li><a class="set" href="https://traderie.com/diablo2resurrected/product/tal-rashas-guardianship?prop_Platform=PC&prop_Mode=softcore&prop_Ladder=false&prop_Game%20version=reign%20of%20the%20warlock" target="_blank">Tal Rasha's Guardianship</a></li>
 		<li><a class="set" href="https://traderie.com/diablo2resurrected/listing/1002409565228?prop_Platform=PC&prop_Mode=softcore&prop_Ladder=false&prop_Game%20version=reign%20of%20the%20warlock" target="_blank">Tal Rasha's Guardianship - 1 x Mal Rune</a></li>
       </ul>
     </div>
-    <div class="group">
+    <div class="group" id="items-trading-tools">
       <h3 class="cat">Trading Tools</h3>
       <ul class="links">
         <li class="placeholder"><span>Add your first link here</span></li>
       </ul>
     </div>
+    <a class="back-to-index" href="#top">↑ Back to index</a>
 
-    <h2 class="section-title">Tools</h2>
-    <div class="group">
+    <h2 class="section-title" id="tools">Tools</h2>
+    <div class="group" id="tools-calculators">
       <h3 class="cat">Calculators</h3>
       <ul class="links">
         <li class="placeholder"><span>Add your first link here</span></li>
       </ul>
     </div>
+    <a class="back-to-index" href="#top">↑ Back to index</a>
 
-    <h2 class="section-title">Community</h2>
-    <div class="group">
+    <h2 class="section-title" id="community">Community</h2>
+    <div class="group" id="community-reddit">
       <h3 class="cat">Reddit</h3>
       <ul class="links">
         <li class="placeholder"><span>Add your first link here</span></li>
       </ul>
     </div>
+    <a class="back-to-index" href="#top">↑ Back to index</a>
 
     <footer>Stay a while and listen.</footer>
 
